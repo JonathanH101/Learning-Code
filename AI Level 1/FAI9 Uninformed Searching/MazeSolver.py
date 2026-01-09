@@ -89,15 +89,15 @@ class Graph:
     while len(visitable) != 0:
 
       node,depth,path = visitable.pop()
-      print(node.key,end=' ')
+      # print(node.key,end=' ')
 
       if node == end:
         return path
 
       for i in node.neighbors:
-        if depth+1 <= limit and i not in visited:
-          visited.add(i)
-          visitable.append((i,depth+1,path+[i]))
+        if depth+1 <= limit and self.graph[i] not in visited:
+          visited.add(self.graph[i])
+          visitable.append((self.graph[i],depth+1,path+[i]))
 
   def get_ids_path(self,start_node,max_depth,end):
     for i in range(max_depth+1):
@@ -112,8 +112,6 @@ class Graph:
     queue = [(start,[start.key])]
     visited = {start}
     while len(queue) != 0:
-      for i in queue:
-        print(i.key)
       a,path = queue.pop(0)
       if a == end:
         return path
@@ -138,10 +136,10 @@ class Graph:
 
   def get_path_cost(self,path):
     total = 0
-    node =
-    for i in path:
-      node2 = self.graph[i]
-      total +=
+    for i in range(len(path)-1):
+      node2 = self.graph[path[i]]
+      total += node2.neighbors[path[i+1]]
+    print(f'The path cost was: {total}')
       
 #hi
 # construct graph of the maze
@@ -195,24 +193,28 @@ g.add_edge(node22, node21, 1)
 g.add_edge(node22, node12, 1)
 
 # different types of traversals to find path to goal
+print('dfs')
 dfs = g.get_dfs_path(node00, node20)
 print(dfs)
 maze.print_path(dfs)
 g.get_path_cost(dfs)
 print()
 
+print('bfs')
 bfs = g.get_bfs_path(node00, node20)
 print(bfs)
 maze.print_path(bfs)
 g.get_path_cost(bfs)
 print()
 
-ids = g.get_ids_path(node00, node20, 6)
+print('ids')
+ids = g.get_ids_path(node00, 6, node20)
 print(ids)
 maze.print_path(ids)
 g.get_path_cost(ids)
 print()
 
+print('ucs')
 ucs = g.get_ucs_path(node00, node20)
 print(ucs)
 maze.print_path(ucs)
