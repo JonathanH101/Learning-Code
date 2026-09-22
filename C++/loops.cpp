@@ -36,4 +36,5 @@ int main() {
         total *= i;
     }
     std::cout << total << std::endl;
+
 }

@@ -5,6 +5,8 @@ int main() {
     std::cout << *p1 << std::endl;
     int* p2 = nullptr;
     std::cout << *p2 << std::endl;
+    int val1 = 4;
+
   // What happens when we print out *p1?
 
   // What happens when we print out a pointer without dereferencing it?

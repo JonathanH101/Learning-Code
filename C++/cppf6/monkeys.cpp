@@ -3,7 +3,6 @@
 
 std::string monkeys(std::string word);
 
-
 int main() {
     srand(time(0));
 }
