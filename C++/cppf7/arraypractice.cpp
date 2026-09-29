@@ -15,6 +15,11 @@ int main() {
     }
 
     std::cout << firstLast(nums, sizeof(nums)/sizeof(nums[0])) << std::endl;
+    std::cout << sumArray(nums, sizeof(nums)/sizeof(nums[0])) << std::endl;
+
+    std::string word[]={"test","test2","test3"};
+
+    std::cout << sumLetters(word, sizeof(word)/sizeof(word[0])) << std::endl;
 
 }
 
@@ -26,6 +31,24 @@ bool firstLast(int arr[], int size) {
     }
 
 }
+
+int sumArray(int arr[], int size) {
+    int total = 0;
+    for(int i = 0; i<size; i++) {
+        total += arr[i];
+    }
+    return total;
+}
+
+int sumLetters(std::string words[], int size) {
+    int total = 0;
+    for(int i = 0; i < size; i++) {
+        total += words[i].length();
+    }
+    return total;
+}
+
+
 
 // 1. Create and print an array containing the first 10 perfect squares (0, 1, 4, ...).
 
