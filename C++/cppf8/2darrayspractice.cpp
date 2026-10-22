@@ -76,8 +76,7 @@ int** multTable(int n) {
 }
 
 float* avgArray(float *arr, int row, int col) {
-    float* arr2 = 0;
-    arr2 = new float[row];
+    float* arr2 = new float[row];
     float number;
     for(int i = 0; i < row; i++) {
         number = 0;
